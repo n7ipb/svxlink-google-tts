@@ -38,4 +38,4 @@ for subdir in $SUBDIRS; do
 done
 #
 # Build the tar file
-    tar -zcvf svxlink_sounds_$NAME\_$GENDER\_$RATE\_$PITCH.tgz $tarlist
+    tar -zcvf svxlink_sounds_$NAME\_$GENDER\_$RATE\_$PITCH.tgz $tarlist $CONFIG_FILE
