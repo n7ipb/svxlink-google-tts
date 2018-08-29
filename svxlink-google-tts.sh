@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Script to create SvxLink compatible sound files using
-# the Google Cloud Text to Speach API
+# the Google Cloud Text to Speech API
 #
 # Copyright (C) 2018 Ken Koster - N7IPB
 #
