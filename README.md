@@ -125,4 +125,5 @@ TEXTTYPE="text"
     The result will be a .tgz file of the form:
    ``` 
    svxlink_sounds_<NAME>_<GENDER>_<RATE>_<PITCH>.tgz
+   Note: The file includes a copy of the config file used to generate the sounds.
    ```
