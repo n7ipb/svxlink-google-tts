@@ -1,5 +1,5 @@
 # svxlink-google-tts
-Tools to create SvxLink sound files using Googles Cloud TTS
+### Tools to create SvxLink sound files using Googles Cloud TTS
 
 
 This is the README file for generating SvxLink sound clips using the Google
@@ -18,8 +18,8 @@ https://cloud.google.com/text-to-speech/docs/quickstart-protocol
 Install the API key .json file in ~/.google/<your key filename.json>
 
 To generate sound files start by checking out the code.
-    git clone http://gitub.com/n7ipb/svxlink-google-tts
 
+    git clone http://gitub.com/n7ipb/svxlink-google-tts
     cd svxlink-google-tts
 
 The directory contains all the directories and text files necessary for the current 
@@ -29,6 +29,7 @@ Custom directory contains a number of entries that I use and others may find use
 Add your own as necessary.
 
 There are seven support files/scripts.
+
     README - this file
     
     google_tts.cfg - the default configuration file that identifies which subdirecories
@@ -61,7 +62,9 @@ There are seven support files/scripts.
         This creates .wav files for all the entries found in the Custom directory.
         
 
-Example config file:
+# Example config file:
+
+```
 
 ###############################################################################
 #
@@ -100,7 +103,9 @@ SAMPLERATE="16000"
 # files are not using ssml.
 TEXTTYPE="text"
 
-To use:
+```
+
+# To use:
     Make sure you have an API .json key installed in ~/.google
     
     cd to the repository.
@@ -114,6 +119,10 @@ To use:
     Test sound samples with 'aplay <path to wave file>'
     
     When you're satisfied with the results you can create a new language pack with
-    create_language_pack.sh.  The result will be a .tgz file of the form
-    svxlink_sounds_<LANGUAGE>_<NAME>_<GENDER>_<RATE>_<PITCH>.tgz
     
+    create_language_pack.sh.  
+    
+    The result will be a .tgz file of the form:
+   ``` 
+   svxlink_sounds_<NAME>_<GENDER>_<RATE>_<PITCH>.tgz
+   ```
