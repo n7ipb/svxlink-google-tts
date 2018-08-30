@@ -22,8 +22,8 @@ To generate sound files start by checking out the code.
     git clone http://gitub.com/n7ipb/svxlink-google-tts
     cd svxlink-google-tts
 
-The directory contains all the directories and text files necessary for the current 
-(8/27/2018) SvxLink code base.  In addition it contains a new directory (Custom) in
+The directory contains all the directories and text files to duplicate those found in 
+svxlink-sounds-en_US-heather.  In addition it contains a new directory (Custom) in 
 which you can place your own custom text files for specialty messages.   The default 
 Custom directory contains a number of entries that I use and others may find useful.
 Add your own as necessary.
