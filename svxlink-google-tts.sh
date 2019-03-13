@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Script to create SvxLink compatible sound files using
 # the Google Cloud Text to Speech API
