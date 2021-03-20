@@ -1,1 +1,0 @@
-Transmitter over temperature alert.
