@@ -1,0 +1,5 @@
+In addition there are a number of built-in commands not associated with modules.
+
+Sending a single star will make the system identify itself.
+
+

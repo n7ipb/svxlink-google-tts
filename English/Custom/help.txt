@@ -1,0 +1,9 @@
+This is the SvixLink repeater system help.
+SvixLink repeaters are controlled by DTMF commands consisting of one or more digits followed buy a number sign.
+The system is divided into several modules,each performing a specific task. 
+You activate a module by sending its module ID followed buy a number sign.
+Most modules will play their help message if a 0 is sent while the module is active.
+In addition there are a number of built-in commands not associated with modules
+that return information about the repeater.  Contact the system owner for a list.
+Sending a single star will make the system identify itself.
+
