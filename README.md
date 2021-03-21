@@ -17,6 +17,9 @@ https://cloud.google.com/text-to-speech/docs/quickstart-protocol
 
 Install the API key .json file in ~/.google/<your key filename.json>
 
+Make sure you have python and pip installed.   
+Then install the python virtualenv with 'pip install virtualenv'
+
 To generate sound files start by checking out the code.
 
     git clone http://gitub.com/n7ipb/svxlink-google-tts
