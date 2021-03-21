@@ -25,44 +25,32 @@ To generate sound files start by checking out the code.
     git clone http://gitub.com/n7ipb/svxlink-google-tts
     cd svxlink-google-tts
 
-The directory contains all the directories and text files to duplicate those found in 
-svxlink-sounds-en_US-heather.  In addition it contains a new directory (Custom) in 
-which you can place your own custom text files for specialty messages.   The default 
-Custom directory contains a number of entries that I use and others may find useful.
-Add your own as necessary.
+The 'English' directory contains all the text files that will be converted to .wav
+file.  The directory tree and matching files match those of the current SVXLink release
+with the addition of a 'Custom' directory for your own customizations.  The default Custom
+directory contains the strings used by pnw220.net.  Feel free to use them or create your own.
 
-There are seven support files/scripts.
+The configs directory contains the configuration files for various Google WaveNet speach
+generation.  At this time there are two configurations a US Male and a US Female voice.
 
-    README - this file
-    
-    google_tts.cfg - the default configuration file that identifies which subdirecories
-    to search for text files and the language, voice ,pitch, speed and other paramaters.  
-    The default values create a pleasant sounding female voice and builds all the SvxLink 
-    sound files.
-    
-    custom_google_tts.cfg - The same entries as google_tts.cfg with the exception of
-    building only those found in the Custom directory.
-    
-    requirements.txt - Google TTS version number needed.
-    
-    list_voices.py - support program used by the main program to list available voices
-    
-    synthesize_text.py - Python program to set paramaters and call the API with the
-    text to be converted.  This program is not used directly but is instead called by
-    svxlink-google-tts.sh.
+The scripts directory has the scripts needed to contact the Google servers and to generate
+all the wave files from the .txt files found in 'English'.
 
-    svxlink-google-tts.sh - the main program that traverses the directories and creates 
+    svxlink-google-tts.sh - the main program that traverses the English directory and creates 
     all the .wav files. 
 
-    Usage: svxlink-google-tts.sh [-L] <config file> "
-            -L -- List available Voices"
+Usage: svxlink-google-tts.sh [-L] [-T <source text dir>] [-D <destination dir>] <config file>
 
-    Invoked with the -L option it simply prints a list of available voices and exits.
-    Without any paramaters it defaults to using the google_tts.cfg file or if given 
-    a filename it will attempt to interpret it as a custom config.
-    
-    Example: ./svxlink-google-tts.sh custom_google_tts.cfg
-        This creates .wav files for all the entries found in the Custom directory.
+  -L -- List available Voices
+  -T -- Direcory of text files to convert
+  -D -- Destination Direcory for sound files
+
+
+    Example: scripts/svxlink-google-tts -T English -D us_male configs/US_Male.cfg
+This creates .wav files for all the entries found in the English directory. Places them
+in a directory called us_male and creates an archive called svxlink-sounds.tar.bz2 in
+that same directory that you can transfer to your target system.  Upon unpacking you
+will have a local directory called us_male with all the sound files. 
         
 
 # Example config file:
@@ -113,20 +101,15 @@ TEXTTYPE="text"
     
     cd to the repository.
     
-    Edit svxlink-google-tts.sh and insert your API key filename where it says
-    "PLACE_YOUR_API_KEY_FILENAME_HERE"
-    
-    To build everything:
-    ./svxlink-google-tts.sh
+    To build:
+	scripts/svxlink-google-tts -T English -D us_male configs/US_Male.cfg
+
+	This creates .wav files for all the entries found in the English directory. Places them
+	in a directory called us_male and creates an archive called svxlink-sounds.tar.bz2 in
+	that same directory. You can then transfer that to your target system.  Upon unpacking you
+	will have a local directory called us_male with all the sound files. Place that where your
+	sound files are stored.
+ 
     
     Test sound samples with 'aplay <path to wave file>'
     
-    When you're satisfied with the results you can create a new language pack with
-    
-    create_language_pack.sh.  
-    
-    The result will be a .tgz file of the form:
-   ``` 
-   svxlink_sounds_<NAME>_<GENDER>_<RATE>_<PITCH>.tgz
-   Note: The file includes a copy of the config file used to generate the sounds.
-   ```
