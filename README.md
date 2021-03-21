@@ -10,12 +10,15 @@ speech with 30 voices, available in multiple languages and variants. It creates
 extremely high quality speech and can easily be used to add additional messages 
 to SvxLink.
 
-You have to have a Google Cloud account and an API key to use this code.  Start
-by following the directions found here:
+You have to have a Google Cloud account and an API key to use this code.  
+
+Start by following the directions found here:
 
 https://cloud.google.com/text-to-speech/docs/quickstart-protocol
 
 Install the API key .json file in ~/.google/<your key filename.json>
+NOTE: The svxlink-google-tts script assumes the key name is key.json
+Change the script if your key name is different.
 
 Make sure you have python and pip installed.   
 Then install the python virtualenv with 'pip install virtualenv'
@@ -25,13 +28,13 @@ To generate sound files start by checking out the code.
     git clone http://gitub.com/n7ipb/svxlink-google-tts
     cd svxlink-google-tts
 
-The 'English' directory contains all the text files that will be converted to .wav
-file.  The directory tree and matching files match those of the current SVXLink release
-with the addition of a 'Custom' directory for your own customizations.  The default Custom
+The 'English' directory contains all the text files that will be converted.  
+The directory tree and files match those of the current SVXLink 'heather' release
+plus a 'Custom' directory for your own customizations.  The default Custom
 directory contains the strings used by pnw220.net.  Feel free to use them or create your own.
 
-The configs directory contains the configuration files for various Google WaveNet speach
-generation.  At this time there are two configurations a US Male and a US Female voice.
+The configs directory contains config files for US Male and a US Female voice. Use the
+-L option to list available voices and create your own configs as needed.
 
 The scripts directory has the scripts needed to contact the Google servers and to generate
 all the wave files from the .txt files found in 'English'.
@@ -45,13 +48,6 @@ Usage: svxlink-google-tts.sh [-L] [-T <source text dir>] [-D <destination dir>] 
   -T -- Direcory of text files to convert
   -D -- Destination Direcory for sound files
 
-
-    Example: scripts/svxlink-google-tts -T English -D us_male configs/US_Male.cfg
-This creates .wav files for all the entries found in the English directory. Places them
-in a directory called us_male and creates an archive called svxlink-sounds.tar.bz2 in
-that same directory that you can transfer to your target system.  Upon unpacking you
-will have a local directory called us_male with all the sound files. 
-        
 
 # Example config file:
 
@@ -101,7 +97,7 @@ TEXTTYPE="text"
     
     cd to the repository.
     
-    To build:
+    build:
 	scripts/svxlink-google-tts -T English -D us_male configs/US_Male.cfg
 
 	This creates .wav files for all the entries found in the English directory. Places them
