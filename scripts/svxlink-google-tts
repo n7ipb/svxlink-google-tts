@@ -190,10 +190,10 @@ if [ -d "${SRC_DIR}/events.d" ]; then
   cp -a "${SRC_DIR}/events.d" "${DEST_DIR}/"
 fi
 
-archive_file="${HOME_DIR}/svxlink-sounds.tar.bz2"
+archive_file="${HOME_DIR}/$DESTINATION.bz2"
 cd ${HOME_DIR}
 echo "Creating archive ${archive_file}..."
 rm -f ${DESTINATION}/*.bz2
-tar cjf ${archive_file} ${DESTINATION}
+tar cjf ${archive_file} ${CONFIG_FILE}  ${DESTINATION}
 mv $archive_file ${DESTINATION}
 shopt -u nullglob
