@@ -100,7 +100,7 @@ TEXTTYPE="text"
     build:
 	scripts/svxlink-google-tts -T English -D us_male configs/US_Male.cfg
 
-	This creates .wav files for all the entries found in the English directory. Places them
+	This creates .wav files for all the entries found in the English directory, places them
 	in a directory called us_male and creates an archive called svxlink-sounds.tar.bz2 in
 	that same directory. You can then transfer that to your target system.  Upon unpacking you
 	will have a local directory called us_male with all the sound files. Place that where your
