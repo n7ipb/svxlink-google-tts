@@ -32,7 +32,7 @@ SRC_DIR="English"
 SCRIPT_DIR="$HOME_DIR/scripts"
 DESTINATION="sound"
 # Default config file
-CONFIG_FILE="google_tts.cfg"
+CONFIG_FILE="US_Female.cfg"
 
 create_virt_env() {
     virtualenv -q env

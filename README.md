@@ -6,7 +6,7 @@ This is the README file for generating SvxLink sound clips using the Google
 text to speech system (https://cloud.google.com/text-to-speech). 
 
 Google Cloud Text-to-Speech enables developers to synthesize natural-sounding 
-speech with 30 voices, available in multiple languages and variants. It creates
+speech with more than 250 voices, available in multiple languages and variants. It creates
 extremely high quality speech and can easily be used to add additional messages 
 to SvxLink.
 
