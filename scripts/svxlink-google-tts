@@ -40,6 +40,12 @@ create_virt_env() {
     pip -q install -r $SCRIPT_DIR/requirements.txt
     export GOOGLE_APPLICATION_CREDENTIALS=~/.google/key.json
 }
+# Print a warning message
+
+ warning()
+{
+  echo -e "\033[31m*** WARNING: $@\033[0m";
+}
 
 list_voices() {
     python $SCRIPT_DIR/list_voices.py
