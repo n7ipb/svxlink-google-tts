@@ -58,7 +58,7 @@ print_usage_and_exit()
     echo "Usage: svxlink-google-tts.sh [-L] [-T <source text dir>] [-D <destination dir>] <config file> "
     echo
     echo "  -L -- List available Voices"
-    echo "  -T -- Direcory of text files to convert"
+    echo "  -T -- Directory of text files to convert"
     echo "  -D -- Destination Direcory for sound files"
     exit 1
 }
@@ -113,7 +113,6 @@ fi
 # Loop through each subdirectory specified in SUBDIRS
 for subdir in $SUBDIRS; do
     echo "Entering $SRC_DIR/$subdir"
-    echo "subdir $subdir"
     pwd
     for file in $SRC_DIR/$subdir/*.txt; do
         echo -e "\t$file"
@@ -124,7 +123,6 @@ for subdir in $SUBDIRS; do
         python $SCRIPT_DIR/synthesize_text.py --$TEXTTYPE "$tts_text" --lang $LANGUAGE --name $NAME --gender $GENDER --rate $RATE --pitch  $PITCH --srate $SAMPLERATE --ofilename $SRC_DIR/$subdir/$filename.wav
     done
 done
-
 # 
 endian=""
 encoding=""
@@ -145,7 +143,8 @@ for subdir in $SUBDIRS; do
   MAXMIZE_SOUNDS=""
   TRIM_SOUNDS=""
   . "${SRC_DIR}/$subdir/subdir.cfg"
-
+    echo "Entering Maximize $SRC_DIR/$subdir"
+    echo "SUBDIRS $SUBDIRS"
   for clip in $MAXIMIZE_SOUNDS; do
     dest_clip="$DEST_DIR/$subdir/$clip"
     src_clip="$SRC_DIR/$subdir/$clip"
@@ -158,8 +157,10 @@ for subdir in $SUBDIRS; do
     else
       warning "Missing sound clip: $src_clip"
     fi
-done
-
+  done
+#done
+    echo "Entering Trim $SRC_DIR/$subdir"
+        echo "SUBDIRS $SUBDIRS"
   for clip in $TRIM_SOUNDS; do
     dest_clip="$DEST_DIR/$subdir/$clip"
     src_clip="$SRC_DIR/$subdir/$clip"
@@ -174,7 +175,10 @@ done
       warning "Missing sound clip: $src_clip"
     fi
   done
-
+#for subdir in $SUBDIRS; do
+    echo "Entering Link $SRC_DIR/$subdir"
+    echo "Creating links"
+        echo "SUBDIRS $SUBDIRS"
   for link_spec in $SOFTLINK_SOUNDS; do
     link=$(echo "$link_spec" | cut -d'|' -f1).$ext
     target=$(echo "$link_spec" | cut -d'|' -f2).$ext

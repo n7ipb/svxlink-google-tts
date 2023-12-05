@@ -30,10 +30,12 @@ To generate sound files start by checking out the code.
 
 The 'English' directory contains all the text files that will be converted.  
 The directory tree and files match those of the current SVXLink 'heather' release
-plus a 'Custom' directory for your own customizations.  The default Custom
+plus a 'Custom' directory for your own unique strings and a 'TalkGroups' directory.  The default Custom
 directory contains the strings used by pnw220.net.  Feel free to use them or create your own.
+The TalkGroups directory contains translations for the system talk groups. The tcl scripts have been
+modified to use this directory instead of the stock location.
 
-The configs directory contains config files for US Male and a US Female voice. Use the
+The configs directory contains config files for US Male and a US Female voices. Use the
 -L option to list available voices and create your own configs as needed.
 
 The scripts directory has the scripts needed to contact the Google servers and to generate
